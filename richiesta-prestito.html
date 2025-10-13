@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Richiesta Prestito Personale | Jacopo Capperucci</title>
+<meta name="description" content="Prestiti personali fino a 50.000€. Valutazione rapida per dipendenti e pensionati. Preventivo senza impegno.">
+<link rel="icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:title" content="Richiesta Prestito Personale">
+<meta property="og:description" content="Valutazione rapida. Documenti minimi. Consulenza dedicata.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.jacopocapperucci.com/richiesta-prestito.html">
+<meta property="og:image" content="https://www.jacopocapperucci.com/foto-jacopo.jpg">
+<style>
+  :root{
+    --bg:#fbfbfc; --text:#111; --muted:#6b7280; --card:#fff; --stroke:#e5e7eb;
+    --accent:#111; --radius:18px; --shadow:0 8px 28px rgba(0,0,0,.07); --w:980px;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{margin:0;background:var(--bg);color:var(--text);
+    font:16px/1.55 -apple-system,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  a{color:var(--text);text-decoration:none}
+  .wrap{max-width:var(--w);margin:0 auto;padding:28px}
+  .header{display:flex;align-items:center;justify-content:space-between;padding:8px 0 16px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand img{height:36px;width:auto;display:block}
+  .brand span{font-weight:700;letter-spacing:.2px}
+  .nav{display:flex;gap:18px;font-size:14px;color:var(--muted)}
+  .btn-wa{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--stroke);padding:10px 14px;border-radius:999px;font-weight:600}
+  .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center}
+  .h1{font-size:34px;line-height:1.15;margin:6px 0 8px;font-weight:800;letter-spacing:-.3px}
+  .sub{color:var(--muted);max-width:48ch}
+  .hero-card{background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
+  .badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+  .badge{font-size:12px;border:1px solid var(--stroke);padding:6px 10px;border-radius:999px;color:#1f2937;background:#fff}
+  form{display:block}
+  label{display:block;margin:12px 0 6px;font-weight:600}
+  input,select,textarea,button{width:100%;padding:12px 13px;border:1px solid var(--stroke);border-radius:12px;background:#fff;font-size:16px}
+  .grid{display:grid;gap:12px;grid-template-columns:1fr 1fr}
+  .row{display:grid;gap:12px}
+  button{border:0;background:var(--accent);color:#fff;font-weight:800;cursor:pointer;margin-top:8px;padding:14px;border-radius:14px}
+  .legal{font-size:12px;color:var(--muted)}
+  .section{margin-top:28px}
+  .card{background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
+  .h2{font-size:20px;margin:0 0 10px;font-weight:800}
+  .faq p{margin:10px 0;color:#374151}
+  .foot{display:flex;justify-content:space-between;align-items:center;margin:28px 0 8px;color:var(--muted);font-size:13px}
+  @media (max-width:860px){.hero{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="header">
+      <div class="brand">
+        <img src="/logo-social.png" alt="Jacopo Capperucci">
+        <span>Jacopo Capperucci</span>
+      </div>
+      <nav class="nav">
+        <a href="/index.html">Home</a>
+        <a href="/privacy.html">Privacy</a>
+        <a class="btn-wa" href="https://wa.me/393337979638?text=Richiesta%20Prestito" rel="noopener">WhatsApp</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div>
+        <div class="hero-card">
+          <div class="badge">Prestito personale fino a 50.000€</div>
+          <h1 class="h1">Valutazione rapida. Rata su misura. Consulenza dedicata.</h1>
+          <p class="sub">Soluzioni per dipendenti pubblici/privati e pensionati INPS. Preventivo gratuito e senza impegno, gestione trasparente dei documenti.</p>
+          <div class="badges">
+            <span class="badge">Preventivo veloce</span>
+            <span class="badge">Documenti minimi</span>
+            <span class="badge">Trasparenza costi</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <form method="post" action="https://formspree.io/f/mblzpoga">
+          <input type="text" name="_hpt" style="display:none" tabindex="-1" autocomplete="off">
+          <div class="grid">
+            <div><label>Nome</label><input name="nome" required></div>
+            <div><label>Cognome</label><input name="cognome" required></div>
+            <div><label>Telefono</label><input name="telefono" required inputmode="tel" pattern="[0-9+ ]{8,}"></div>
+            <div><label>Email (opzionale)</label><input type="email" name="email" value="info@jacopocapperucci.it"></div>
+            <div>
+              <label>Importo richiesto</label>
+              <select name="importo" required>
+                <option value="">Seleziona</option>
+                <option>3.000€</option><option>5.000€</option><option>10.000€</option>
+                <option>20.000€</option><option>30.000€</option><option>50.000€</option>
+              </select>
+            </div>
+            <div>
+              <label>Datore di lavoro</label>
+              <select name="datore" required>
+                <option value="">Seleziona</option>
+                <option>Dipendente pubblico</option>
+                <option>Dipendente privato</option>
+                <option>Pensionato INPS</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row" style="margin-top:6px">
+            <div>
+              <label>Finalità</label>
+              <select name="finalita" required>
+                <option value="">Seleziona</option>
+                <option>Consolidamento</option>
+                <option>Ristrutturazione</option>
+                <option>Spese personali</option>
+                <option>Auto</option>
+                <option>Altro</option>
+              </select>
+            </div>
+            <div>
+              <label>Note (opzionale)</label>
+              <textarea name="note" rows="3"></textarea>
+            </div>
+          </div>
+
+          <input type="hidden" name="utm_source" value="">
+          <input type="hidden" name="utm_medium" value="">
+          <input type="hidden" name="utm_campaign" value="">
+          <input type="hidden" name="utm_content" value="">
+          <input type="hidden" name="utm_term" value="">
+
+          <label style="margin:12px 0 0">
+            <input type="checkbox" required> Acconsento al trattamento dei dati per essere ricontattato.
+          </label>
+          <button type="submit">Richiedi informazioni</button>
+          <p class="legal">Informativa privacy <a href="/privacy.html" target="_blank" rel="noopener">qui</a>. Conservazione dati: max 24 mesi.</p>
+        </form>
+      </div>
+    </section>
+
+    <section class="section card">
+      <h2 class="h2">Come funziona</h2>
+      <div class="badges" style="margin:4px 0 8px">
+        <span class="badge">1. Invio richiesta</span>
+        <span class="badge">2. Verifica documenti</span>
+        <span class="badge">3. Proposta su misura</span>
+      </div>
+      <p class="sub">Tempi indicativi: valutazione preliminare in 24–48h lavorative, variabili in base ai documenti.</p>
+    </section>
+
+    <section class="section card faq">
+      <h2 class="h2">FAQ rapide</h2>
+      <p><strong>Documenti:</strong> documento d’identità, codice fiscale, busta paga o cedolino, IBAN.</p>
+      <p><strong>Chi può richiedere:</strong> dipendenti pubblici/privati e pensionati INPS. Valutazione soggetta a merito creditizio.</p>
+    </section>
+
+    <footer class="foot">
+      <div>© <span id="y"></span> Jacopo Capperucci</div>
+      <div><a href="/privacy.html">Privacy</a></div>
+    </footer>
+  </div>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+  const p = new URLSearchParams(location.search);
+  ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(k=>{
+    const el=document.querySelector(`input[name="${k}"]`); if(el){ el.value=p.get(k)||'';}
+  });
+</script>
+</body>
+</html>
