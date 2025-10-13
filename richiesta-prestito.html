@@ -42,6 +42,7 @@
   .cta-inline{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
   .card{background:var(--panel);border:1px solid var(--stroke);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
   label{display:block;margin:10px 0 6px;font-weight:700}
+  label.required::after{content:" *";color:#e11d48;font-weight:900}
   input,select,textarea,button{width:100%;padding:12px 13px;border:1px solid var(--stroke);border-radius:12px;background:#fff;font-size:16px}
   .grid{display:grid;gap:12px;grid-template-columns:1fr 1fr}
   @media(max-width:720px){.grid{grid-template-columns:1fr}}
@@ -53,7 +54,11 @@
   .legal{font-size:12px;color:var(--muted)}
   button[type="submit"]{border:0;background:#111827;color:#fff;font-weight:900;cursor:pointer;margin-top:10px;padding:14px;border-radius:14px}
   .foot{color:#cbd5e1;font-size:12px;text-align:center;margin-top:26px}
+  .consent{display:flex;align-items:center;gap:8px;margin-top:12px}
+  .consent input{width:auto}
   .hide{display:none}
+  .legend{margin-top:10px;font-size:12px;color:#6b7280}
+  a.underline{text-decoration:underline}
 </style>
 </head>
 <body>
@@ -91,12 +96,12 @@
       <input type="text" name="_hpt" style="display:none" tabindex="-1" autocomplete="off">
 
       <div class="grid">
-        <div><label>Nome</label><input name="nome" required></div>
-        <div><label>Cognome</label><input name="cognome" required></div>
-        <div><label>Telefono</label><input name="telefono" required inputmode="tel" pattern="[0-9+ ]{8,}"></div>
-        <div><label>Email (opzionale)</label><input type="email" name="email"></div>
+        <div><label class="required">Nome</label><input name="nome" required></div>
+        <div><label class="required">Cognome</label><input name="cognome" required></div>
+        <div><label class="required">Telefono</label><input name="telefono" required inputmode="tel" pattern="[0-9+ ]{8,}"></div>
+        <div><label>Email</label><input type="email" name="email"></div>
         <div>
-          <label>Importo richiesto</label>
+          <label class="required">Importo richiesto</label>
           <select name="importo" required>
             <option value="">Seleziona</option>
             <option>3.000€</option><option>5.000€</option><option>10.000€</option>
@@ -105,7 +110,7 @@
         </div>
 
         <div id="wrap-datore-pp">
-          <label>Datore di lavoro</label>
+          <label class="required">Datore di lavoro</label>
           <select id="datore-pp" name="datore" required>
             <option value="">Seleziona</option>
             <option>Dipendente pubblico</option>
@@ -116,7 +121,7 @@
         </div>
 
         <div id="wrap-datore-cq" class="hide">
-          <label>Datore di lavoro</label>
+          <label class="required">Datore di lavoro</label>
           <select id="datore-cq" required>
             <option value="">Seleziona</option>
             <option>Dipendente pubblico</option>
@@ -128,7 +133,7 @@
 
       <div id="wrap-finalita" class="row">
         <div>
-          <label>Finalità</label>
+          <label class="required">Finalità</label>
           <select id="finalita" name="finalita" required>
             <option value="">Seleziona</option>
             <option>Consolidamento</option>
@@ -138,7 +143,7 @@
             <option>Altro</option>
           </select>
         </div>
-        <div><label>Note (opzionale)</label><textarea name="note" rows="3"></textarea></div>
+        <div><label>Note</label><textarea name="note" rows="3"></textarea></div>
       </div>
 
       <input type="hidden" name="utm_source" value="">
@@ -147,11 +152,15 @@
       <input type="hidden" name="utm_content" value="">
       <input type="hidden" name="utm_term" value="">
 
-      <label style="margin:12px 0 0">
-        <input type="checkbox" required> Acconsento al trattamento dei dati per essere ricontattato.
-      </label>
+      <div class="consent">
+        <input type="checkbox" required>
+        <span class="legal">Acconsento al trattamento dei dati per essere ricontattato.  
+          Informativa privacy <a href="/privacy.html" class="underline" target="_blank" rel="noopener">qui</a>.
+        </span>
+      </div>
+
       <button type="submit">Invia richiesta</button>
-      <p class="legal">Informativa privacy <a href="/privacy.html" target="_blank" rel="noopener">qui</a>. Conservazione dati: max 24 mesi.</p>
+      <p class="legend">* campi obbligatori</p>
     </form>
   </div>
 </section>
