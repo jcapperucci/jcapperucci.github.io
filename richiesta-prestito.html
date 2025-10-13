@@ -19,27 +19,46 @@
   }
   *{box-sizing:border-box}
   html,body{height:100%}
-  body{margin:0;font:16px/1.55 -apple-system,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--text);
-    -webkit-font-smoothing:antialiased;background:linear-gradient(135deg,var(--bg1) 0%,var(--bg2) 60%)}
+  body{
+    margin:0;font:16px/1.55 -apple-system,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--text);
+    -webkit-font-smoothing:antialiased;background:linear-gradient(135deg,var(--bg1) 0%,var(--bg2) 60%)
+  }
   a{color:inherit;text-decoration:none}
   .wrap{max-width:var(--max);margin:0 auto;padding:28px}
-  .header{display:flex;align-items:center;justify-content:space-between;color:#fff;margin-bottom:18px}
+
+  /* HEADER STICKY (evita “salti”) */
+  .header{
+    position:sticky; top:0; z-index:1000;
+    backdrop-filter:saturate(160%) blur(8px);
+    background:linear-gradient(135deg,var(--bg1) 0%, var(--bg2) 60%);
+    display:flex; align-items:center; justify-content:space-between;
+    color:#fff; padding:10px 0 12px; margin-bottom:18px;
+  }
   .brand{display:flex;align-items:center;gap:12px}
   .brand img{height:36px;width:auto}
   .brand span{font-weight:800;letter-spacing:.2px}
-  .btn-home{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.25);
-    padding:10px 16px;border-radius:999px;color:#fff;font-weight:700;background:transparent}
-  .btn-wa{display:inline-flex;align-items:center;gap:8px;border:0;padding:10px 16px;border-radius:999px;
-    background:var(--wa);color:#fff;font-weight:800}
+  .btn-home{
+    display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.25);
+    padding:10px 16px;border-radius:999px;color:#fff;font-weight:700;background:transparent
+  }
+
+  .btn-wa{
+    display:inline-flex;align-items:center;gap:8px;border:0;padding:10px 16px;border-radius:999px;
+    background:var(--wa);color:#fff;font-weight:800
+  }
   .btn-wa:hover{filter:brightness(.95)}
+
   .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:24px;align-items:center}
   @media(max-width:860px){.hero{grid-template-columns:1fr}}
   .headline{color:#fff;padding:24px}
-  .eyebrow{display:inline-block;color:#000;background:rgba(255,255,255,.9);border-radius:999px;padding:6px 12px;
-    font-size:12px;font-weight:700;letter-spacing:.3px}
+  .eyebrow{
+    display:inline-block;color:#000;background:rgba(255,255,255,.9);border-radius:999px;padding:6px 12px;
+    font-size:12px;font-weight:700;letter-spacing:.3px
+  }
   .h1{margin:14px 0 8px;font-weight:900;letter-spacing:-.4px;line-height:1.1;font-size:40px}
   .sub{opacity:.95;max-width:54ch}
   .cta-inline{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
+
   .card{background:var(--panel);border:1px solid var(--stroke);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
   label{display:block;margin:10px 0 6px;font-weight:700}
   label.required::after{content:" *";color:#e11d48;font-weight:900}
@@ -47,161 +66,195 @@
   .grid{display:grid;gap:12px;grid-template-columns:1fr 1fr}
   @media(max-width:720px){.grid{grid-template-columns:1fr}}
   .row{display:grid;gap:12px}
+
   .segmented{display:inline-flex;border:1px solid var(--stroke);border-radius:999px;overflow:hidden;background:#fff}
   .segmented button{border:0;background:#fff;padding:10px 14px;font-weight:800;cursor:pointer}
   .segmented button.active{background:#111827;color:#fff}
+
   .muted{font-size:12px;color:var(--muted)}
   .legal{font-size:12px;color:var(--muted)}
   button[type="submit"]{border:0;background:#111827;color:#fff;font-weight:900;cursor:pointer;margin-top:10px;padding:14px;border-radius:14px}
   .foot{color:#cbd5e1;font-size:12px;text-align:center;margin-top:26px}
+
   .consent{display:flex;align-items:center;gap:8px;margin-top:12px}
   .consent input{width:auto}
-  .hide{display:none}
   .legend{margin-top:10px;font-size:12px;color:#6b7280}
   a.underline{text-decoration:underline}
+
+  /* Area variabile con altezza fissata per evitare autoscroll */
+  #varying-area{min-height:300px}        /* adatta se necessario */
+  @media(max-width:720px){#varying-area{min-height:340px}}
+  .hide{display:none}
 </style>
 </head>
 <body>
 <div class="wrap">
 
-<header class="header">
-  <div class="brand"><img src="/logo-social.png" alt="Jacopo Capperucci"><span>Jacopo Capperucci</span></div>
-  <div><a class="btn-home" href="https://jacopocapperucci.it" rel="noopener">Home</a></div>
-</header>
+  <header class="header">
+    <div class="brand"><img src="/logo-social.png" alt="Jacopo Capperucci"><span>Jacopo Capperucci</span></div>
+    <div><a class="btn-home" href="https://jacopocapperucci.it" rel="noopener">Home</a></div>
+  </header>
 
-<section class="hero">
-  <div class="headline">
-    <span class="eyebrow">Richiesta online</span>
-    <h1 class="h1">Scegli la soluzione più adatta alle tue esigenze.</h1>
-    <p class="sub">
-      <strong>Prestito personale</strong>: veloce e flessibile.  
-      <br><strong>Cessione del quinto</strong>: sicura e stabile.  
-      <br>Compila il modulo in pochi secondi per ricevere una valutazione gratuita.
-    </p>
-    <div class="cta-inline">
-      <a class="btn-wa" href="https://wa.me/393337979638?text=Ho%20bisogno%20di%20informazioni%20sui%20prestiti" rel="noopener">Parla su WhatsApp</a>
-    </div>
-  </div>
-
-  <div class="card">
-    <div style="display:flex;gap:12px;margin-bottom:8px">
-      <div class="segmented" role="tablist" aria-label="Seleziona prodotto">
-        <button type="button" id="tab-pp" class="active" data-target="pp" aria-selected="true">Prestito personale</button>
-        <button type="button" id="tab-cq" data-target="cq" aria-selected="false">Cessione del quinto</button>
+  <section class="hero">
+    <div class="headline">
+      <span class="eyebrow">Richiesta online</span>
+      <h1 class="h1">Scegli la soluzione più adatta alle tue esigenze.</h1>
+      <p class="sub">
+        <strong>Prestito personale</strong>: veloce e flessibile.<br>
+        <strong>Cessione del quinto</strong>: sicura e stabile.<br>
+        Compila il modulo in pochi secondi per una valutazione gratuita.
+      </p>
+      <div class="cta-inline">
+        <a class="btn-wa" href="https://wa.me/393337979638?text=Ho%20bisogno%20di%20informazioni%20sui%20prestiti" rel="noopener">Parla su WhatsApp</a>
       </div>
     </div>
 
-    <form id="leadForm" method="post" action="https://formspree.io/f/mblzpoga">
-      <input type="hidden" name="prodotto" id="prodotto" value="Prestito personale">
-      <input type="text" name="_hpt" style="display:none" tabindex="-1" autocomplete="off">
-
-      <div class="grid">
-        <div><label class="required">Nome</label><input name="nome" required></div>
-        <div><label class="required">Cognome</label><input name="cognome" required></div>
-        <div><label class="required">Telefono</label><input name="telefono" required inputmode="tel" pattern="[0-9+ ]{8,}"></div>
-        <div><label>Email</label><input type="email" name="email"></div>
-        <div>
-          <label class="required">Importo richiesto</label>
-          <select name="importo" required>
-            <option value="">Seleziona</option>
-            <option>3.000€</option><option>5.000€</option><option>10.000€</option>
-            <option>20.000€</option><option>30.000€</option><option>50.000€</option>
-          </select>
-        </div>
-
-        <div id="wrap-datore-pp">
-          <label class="required">Datore di lavoro</label>
-          <select id="datore-pp" name="datore" required>
-            <option value="">Seleziona</option>
-            <option>Dipendente pubblico</option>
-            <option>Dipendente privato</option>
-            <option>Pensionato INPS</option>
-            <option>Autonomo</option>
-          </select>
-        </div>
-
-        <div id="wrap-datore-cq" class="hide">
-          <label class="required">Datore di lavoro</label>
-          <select id="datore-cq" required>
-            <option value="">Seleziona</option>
-            <option>Dipendente pubblico</option>
-            <option>Dipendente privato</option>
-            <option>Pensionato INPS</option>
-          </select>
+    <div class="card">
+      <div style="display:flex;gap:12px;margin-bottom:8px">
+        <div class="segmented" role="tablist" aria-label="Seleziona prodotto">
+          <button type="button" id="tab-pp" class="active" data-target="pp" aria-selected="true">Prestito personale</button>
+          <button type="button" id="tab-cq" data-target="cq" aria-selected="false">Cessione del quinto</button>
         </div>
       </div>
 
-      <div id="wrap-finalita" class="row">
-        <div>
-          <label class="required">Finalità</label>
-          <select id="finalita" name="finalita" required>
-            <option value="">Seleziona</option>
-            <option>Consolidamento</option>
-            <option>Ristrutturazione</option>
-            <option>Spese personali</option>
-            <option>Auto</option>
-            <option>Altro</option>
-          </select>
+      <form id="leadForm" method="post" action="https://formspree.io/f/mblzpoga">
+        <input type="hidden" name="prodotto" id="prodotto" value="Prestito personale">
+        <input type="text" name="_hpt" style="display:none" tabindex="-1" autocomplete="off">
+
+        <div class="grid">
+          <div><label class="required">Nome</label><input name="nome" required></div>
+          <div><label class="required">Cognome</label><input name="cognome" required></div>
+          <div><label class="required">Telefono</label><input name="telefono" required inputmode="tel" pattern="[0-9+ ]{8,}"></div>
+          <div><label>Email</label><input type="email" name="email"></div>
+          <div>
+            <label class="required">Importo richiesto</label>
+            <select name="importo" required>
+              <option value="">Seleziona</option>
+              <option>3.000€</option><option>5.000€</option><option>10.000€</option>
+              <option>20.000€</option><option>30.000€</option><option>50.000€</option>
+            </select>
+          </div>
         </div>
-        <div><label>Note</label><textarea name="note" rows="3"></textarea></div>
-      </div>
 
-      <input type="hidden" name="utm_source" value="">
-      <input type="hidden" name="utm_medium" value="">
-      <input type="hidden" name="utm_campaign" value="">
-      <input type="hidden" name="utm_content" value="">
-      <input type="hidden" name="utm_term" value="">
+        <!-- AREA VARIABILE: cambia tra PP e CQ -->
+        <div id="varying-area">
+          <div class="grid">
+            <!-- Datore PP (include Autonomo) -->
+            <div id="wrap-datore-pp">
+              <label class="required">Datore di lavoro</label>
+              <select id="datore-pp" name="datore" required>
+                <option value="">Seleziona</option>
+                <option>Dipendente pubblico</option>
+                <option>Dipendente privato</option>
+                <option>Pensionato INPS</option>
+                <option>Autonomo</option>
+              </select>
+            </div>
 
-      <div class="consent">
-        <input type="checkbox" required>
-        <span class="legal">Acconsento al trattamento dei dati per essere ricontattato.  
-          Informativa privacy <a href="/privacy.html" class="underline" target="_blank" rel="noopener">qui</a>.
-        </span>
-      </div>
+            <!-- Datore CQ (no Autonomo) -->
+            <div id="wrap-datore-cq" class="hide">
+              <label class="required">Datore di lavoro</label>
+              <select id="datore-cq" required>
+                <option value="">Seleziona</option>
+                <option>Dipendente pubblico</option>
+                <option>Dipendente privato</option>
+                <option>Pensionato INPS</option>
+              </select>
+            </div>
+          </div>
 
-      <button type="submit">Invia richiesta</button>
-      <p class="legend">* campi obbligatori</p>
-    </form>
-  </div>
-</section>
+          <!-- Finalità solo per PP -->
+          <div id="wrap-finalita" class="row">
+            <div>
+              <label class="required">Finalità</label>
+              <select id="finalita" name="finalita" required>
+                <option value="">Seleziona</option>
+                <option>Consolidamento</option>
+                <option>Ristrutturazione</option>
+                <option>Spese personali</option>
+                <option>Auto</option>
+                <option>Altro</option>
+              </select>
+            </div>
+            <div><label>Note</label><textarea name="note" rows="3"></textarea></div>
+          </div>
+        </div>
 
-<div class="foot">© <span id="y"></span> Jacopo Capperucci • <a href="/privacy.html" style="color:#cbd5e1">Privacy</a></div>
+        <!-- UTM -->
+        <input type="hidden" name="utm_source" value="">
+        <input type="hidden" name="utm_medium" value="">
+        <input type="hidden" name="utm_campaign" value="">
+        <input type="hidden" name="utm_content" value="">
+        <input type="hidden" name="utm_term" value="">
+
+        <!-- Consenso inline -->
+        <div class="consent">
+          <input type="checkbox" required>
+          <span class="legal">Acconsento al trattamento dei dati per essere ricontattato. Informativa privacy
+            <a href="/privacy.html" class="underline" target="_blank" rel="noopener">qui</a>.
+          </span>
+        </div>
+
+        <button type="submit">Invia richiesta</button>
+        <p class="legend">* campi obbligatori</p>
+      </form>
+    </div>
+  </section>
+
+  <div class="foot">© <span id="y"></span> Jacopo Capperucci • <a href="/privacy.html" style="color:#cbd5e1">Privacy</a></div>
 </div>
 
 <script>
-document.getElementById('y').textContent = new Date().getFullYear();
-const p=new URLSearchParams(location.search);
-['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(k=>{
-  const el=document.querySelector(`input[name="${k}"]`);if(el){el.value=p.get(k)||'';}
-});
-const tabPP=document.getElementById('tab-pp');
-const tabCQ=document.getElementById('tab-cq');
-const prodotto=document.getElementById('prodotto');
-const wrapDatorePP=document.getElementById('wrap-datore-pp');
-const wrapDatoreCQ=document.getElementById('wrap-datore-cq');
-const datorePP=document.getElementById('datore-pp');
-const datoreCQ=document.getElementById('datore-cq');
-const wrapFinalita=document.getElementById('wrap-finalita');
-const finalita=document.getElementById('finalita');
-function setActive(target){
-  if(target==='pp'){
-    tabPP.classList.add('active');tabCQ.classList.remove('active');
-    prodotto.value='Prestito personale';
-    wrapDatorePP.classList.remove('hide');wrapDatoreCQ.classList.add('hide');
-    datorePP.setAttribute('name','datore');datoreCQ.removeAttribute('name');
-    wrapFinalita.classList.remove('hide');finalita.setAttribute('required','required');
-  }else{
-    tabCQ.classList.add('active');tabPP.classList.remove('active');
-    prodotto.value='Cessione del quinto';
-    wrapDatoreCQ.classList.remove('hide');wrapDatorePP.classList.add('hide');
-    datoreCQ.setAttribute('name','datore');datorePP.removeAttribute('name');
-    wrapFinalita.classList.add('hide');finalita.removeAttribute('name');finalita.removeAttribute('required');
+  // Footer year
+  document.getElementById('y').textContent = new Date().getFullYear();
+
+  // UTM autofill
+  const p = new URLSearchParams(location.search);
+  ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(k=>{
+    const el=document.querySelector(`input[name="${k}"]`); if(el){ el.value=p.get(k)||'';}
+  });
+
+  // Toggle PP / CQ con lock dell'altezza per evitare “salti”
+  const tabPP=document.getElementById('tab-pp');
+  const tabCQ=document.getElementById('tab-cq');
+  const prodotto=document.getElementById('prodotto');
+  const wrapDatorePP=document.getElementById('wrap-datore-pp');
+  const wrapDatoreCQ=document.getElementById('wrap-datore-cq');
+  const datorePP=document.getElementById('datore-pp');
+  const datoreCQ=document.getElementById('datore-cq');
+  const wrapFinalita=document.getElementById('wrap-finalita');
+  const finalita=document.getElementById('finalita');
+  const varyingArea=document.getElementById('varying-area');
+
+  function lockHeight(){
+    varyingArea.style.minHeight='';
+    const h = varyingArea.scrollHeight;
+    varyingArea.style.minHeight = h + 'px';
   }
-}
-tabPP.addEventListener('click',()=>setActive('pp'));
-tabCQ.addEventListener('click',()=>setActive('cq'));
-setActive('pp');
-tabPP.addEventListener('click',()=>{finalita.setAttribute('name','finalita');finalita.setAttribute('required','required');});
+
+  function setActive(target){
+    if(target==='pp'){
+      tabPP.classList.add('active'); tabCQ.classList.remove('active');
+      prodotto.value='Prestito personale';
+      wrapDatorePP.classList.remove('hide'); wrapDatoreCQ.classList.add('hide');
+      datorePP.setAttribute('name','datore'); datoreCQ.removeAttribute('name');
+      wrapFinalita.classList.remove('hide');
+      finalita.setAttribute('name','finalita'); finalita.setAttribute('required','required');
+    }else{
+      tabCQ.classList.add('active'); tabPP.classList.remove('active');
+      prodotto.value='Cessione del quinto';
+      wrapDatoreCQ.classList.remove('hide'); wrapDatorePP.classList.add('hide');
+      datoreCQ.setAttribute('name','datore'); datorePP.removeAttribute('name');
+      wrapFinalita.classList.add('hide');
+      finalita.removeAttribute('name'); finalita.removeAttribute('required');
+    }
+    lockHeight();
+  }
+
+  tabPP.addEventListener('click',()=>setActive('pp'));
+  tabCQ.addEventListener('click',()=>setActive('cq'));
+  window.addEventListener('load', ()=>{ setActive('pp'); lockHeight(); });
+  window.addEventListener('resize', lockHeight);
 </script>
 </body>
 </html>
